@@ -27,6 +27,11 @@ def model_diagnostics(m):
     #Printing residuals vs fitted values
     #a, b = np.polyfit(m.resid, m.fittedvalues, 1)
     plt.figure()
+    plt.hist(m.resid)
+    plt.title("Histogram of residuals")
+    plt.xlabel("Residuals")
+    plt.ylabel("Frequency")
+    plt.figure()
     sns.regplot(x=m.fittedvalues,y=m.resid,fit_reg=True)
     plt.title("Residuals vs Fitted Values")
     plt.xlabel("Fitted values")
