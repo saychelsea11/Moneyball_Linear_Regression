@@ -9,6 +9,17 @@ from statsmodels.graphics.regressionplots import *
 def simple_linear_regression(df,x,y):
     eq = y + ' ~ ' + x
     m = ols(eq,df).fit()
+    print ("Equation:",eq,'\n')
+    print(m.summary())
+    return m
+    
+def multiple_linear_regression(df,x_vars,y):
+    eq = y + ' ~ '
+    for i in x_vars:
+        eq = eq + i + ' + '
+    eq = eq[:-3]
+    print ("Equation:",eq,'\n')
+    m = ols(eq,df).fit()
     print(m.summary())
     return m
     
